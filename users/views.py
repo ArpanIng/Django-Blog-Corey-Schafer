@@ -14,9 +14,12 @@ def register(request):
             # django flash messages
             messages.success(request, "Account created sucessfully!")
             return redirect("login")
-    form = UserRegisterForm()
+    else:
+        form = UserRegisterForm()
 
-    context = {"form": form}
+    context = {
+        "form": form,
+    }
     return render(request, "users/register.html", context)
 
 
